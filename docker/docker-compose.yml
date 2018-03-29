@@ -1,0 +1,17 @@
+version: "2"
+
+services:
+  bitcoind-dev:
+    build:
+      context: ./bitcoind-dev
+      dockerfile: Dockerfile
+    container_name: bitcoind-dev
+    expose:
+      - "18001-18003"
+      - "16001-16003"
+    ports:
+      - "18001-18003:18001-18003"
+      - "16001-16003:16001-16003"
+    command: ["sh", "/data/startbtc.sh"]
+    networks:
+      - default
